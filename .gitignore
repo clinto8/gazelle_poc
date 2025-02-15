@@ -27,3 +27,9 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+.ijwb
+.idea
+bazel-bin
+bazel-out
+bazel-testlogs
+gazelle_poc.iml
