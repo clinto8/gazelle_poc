@@ -1,6 +1,6 @@
 bazel_dep(name = "rules_jvm_external", version = "6.4")
 bazel_dep(name = "contrib_rules_jvm", version = "0.24.0")
-bazel_dep(name = "gazelle", version = "0.42.0")
+bazel_dep(name = "gazelle", version = "0.39.1")
 
 #use_extension("@contrib_rules_jvm//:extensions.bzl", "contrib_rules_jvm_deps")
 
