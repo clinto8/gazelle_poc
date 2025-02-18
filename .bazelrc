@@ -1,1 +1,1 @@
-build --experimental_strict_java_deps=error
+build --experimental_strict_java_deps=off

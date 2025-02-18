@@ -36,6 +36,7 @@ java_library(
     name = "utils_lib3",
     srcs = ["utils/src/main/java/com/example/util3/UtilityHelper2.java"],
     visibility = ["//visibility:public"],
+    deps = ["@maven//:org_apache_commons_commons_lang3"],
 )
 
 # Java Library for app

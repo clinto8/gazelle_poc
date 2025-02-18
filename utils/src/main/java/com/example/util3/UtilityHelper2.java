@@ -1,4 +1,5 @@
 package com.example.util3;
+import org.apache.commons.lang3.StringUtils;
 
 public class UtilityHelper2 {
     private final String message;
@@ -8,6 +9,6 @@ public class UtilityHelper2 {
     }
 
     public String getMessage() {
-        return message;
+        return StringUtils.trim(message);
     }
 }
