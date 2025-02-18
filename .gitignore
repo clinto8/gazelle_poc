@@ -31,5 +31,6 @@ bin/
 .idea
 bazel-bin
 bazel-out
+bazel-gazelle_poc
 bazel-testlogs
 gazelle_poc.iml

@@ -1,6 +1,8 @@
-# Root-level BUILD.bazel
+# gazelle:java_maven_install_file rules_jvm_external~~maven~maven_install.json
+
 load("@contrib_rules_jvm//java:defs.bzl", "java_junit5_test")
 load("@gazelle//:def.bzl", "DEFAULT_LANGUAGES", "gazelle", "gazelle_binary")
+load("@rules_java//java:defs.bzl", "java_library")
 
 java_library(
     name = "all_deps",
