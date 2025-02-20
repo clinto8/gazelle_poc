@@ -1,73 +1,72 @@
 # gazelle:java_maven_install_file rules_jvm_external~~maven~maven_install.json
+# gazelle:resolve java org.junit.jupiter.api @maven//:org_junit_jupiter_junit_jupiter_api
 
-load("@contrib_rules_jvm//java:defs.bzl", "java_junit5_test")
 load("@gazelle//:def.bzl", "DEFAULT_LANGUAGES", "gazelle", "gazelle_binary")
-load("@rules_java//java:defs.bzl", "java_library")
 
-java_library(
-    name = "all_deps",
-    srcs = ["app/src/main/java/Dummy.java"],
-    deps = [
-        "utils_lib",
-        "utils_lib2",
-        "utils_lib3",
-        "@maven//:org_junit_jupiter_junit_jupiter_api",
-    ],
-)
-
-# Java Library for utils
-java_library(
-    name = "utils_lib",
-    srcs = ["utils/src/main/java/com/example/util/StringUtil.java"],
-    visibility = ["//visibility:public"],
-    deps = [
-        ":utils_lib2",
-        ":utils_lib3",
-    ],
-)
-
-java_library(
-    name = "utils_lib2",
-    srcs = ["utils/src/main/java/com/example/util2/UtilityHelper.java"],
-    visibility = ["//visibility:public"],
-)
-
-java_library(
-    name = "utils_lib3",
-    srcs = ["utils/src/main/java/com/example/util3/UtilityHelper2.java"],
-    visibility = ["//visibility:public"],
-    deps = ["@maven//:org_apache_commons_commons_lang3"],
-)
-
-# Java Library for app
-java_library(
-    name = "app_lib",
-    srcs = ["app/src/main/java/com/example/app/MainApp.java"],
-    visibility = ["//visibility:public"],
-    deps = [
-        ":utils_lib2",
-        ":utils_lib3",
-        #":all_deps",
-        #":utils_lib",
-    ],
-)
-
-# JUnit 5 Test for utils
-java_junit5_test(
-    name = "StringUtilTest",
-    srcs = ["utils/src/test/java/com/example/util/StringUtilTest.java"],
-    test_class = "com.example.util.StringUtilTest",
-    runtime_deps = [
-        "@maven//:org_junit_jupiter_junit_jupiter_engine",
-        "@maven//:org_junit_platform_junit_platform_launcher",
-        "@maven//:org_junit_platform_junit_platform_reporting",
-    ],
-    deps = [
-        #":all_deps",
-        ":utils_lib",
-        "@maven//:org_junit_jupiter_junit_jupiter_api",
-    ],
-)
+#java_library(
+#    name = "all_deps",
+#    srcs = ["app/src/main/java/Dummy.java"],
+#    deps = [
+#        "utils_lib",
+#        "utils_lib2",
+#        "utils_lib3",
+#        "@maven//:org_junit_jupiter_junit_jupiter_api",
+#    ],
+#)
+#
+## Java Library for utils
+#java_library(
+#    name = "utils_lib",
+#    srcs = ["utils/src/main/java/com/example/util/StringUtil.java"],
+#    visibility = ["//visibility:public"],
+#    deps = [
+#        ":utils_lib2",
+#        ":utils_lib3",
+#    ],
+#)
+#
+#java_library(
+#    name = "utils_lib2",
+#    srcs = ["utils/src/main/java/com/example/util2/UtilityHelper.java"],
+#    visibility = ["//visibility:public"],
+#)
+#
+#java_library(
+#    name = "utils_lib3",
+#    srcs = ["utils/src/main/java/com/example/util3/UtilityHelper2.java"],
+#    visibility = ["//visibility:public"],
+#    deps = ["@maven//:org_apache_commons_commons_lang3"],
+#)
+#
+## Java Library for app
+#java_library(
+#    name = "app_lib",
+#    srcs = ["app/src/main/java/com/example/app/MainApp.java"],
+#    visibility = ["//visibility:public"],
+#    deps = [
+#        ":utils_lib2",
+#        ":utils_lib3",
+#        #":all_deps",
+#        #":utils_lib",
+#    ],
+#)
+#
+## JUnit 5 Test for utils
+#java_junit5_test(
+#    name = "StringUtilTest",
+#    srcs = ["utils/src/test/java/com/example/util/StringUtilTest.java"],
+#    test_class = "com.example.util.StringUtilTest",
+#    runtime_deps = [
+#        "@maven//:org_junit_jupiter_junit_jupiter_engine",
+#        "@maven//:org_junit_platform_junit_platform_launcher",
+#        "@maven//:org_junit_platform_junit_platform_reporting",
+#    ],
+#    deps = [
+#        #":all_deps",
+#        ":utils_lib",
+#        "@maven//:org_junit_jupiter_junit_jupiter_api",
+#    ],
+#)
 
 #strict mode only works on compile-time deps
 #Using the ultra all-deps target helps us identify only direct dependencies, thus helping us remove transitive ones.
