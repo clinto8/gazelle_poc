@@ -10,13 +10,6 @@ public class MainApp {
         //utilDep();
     }
 
-//    private static void utilDep() {
-//        String message = "hello world";
-//        System.out.println("Capitalized: " + StringUtil.capitalize(message));
-//        System.out.println("Formatted Message: " + StringUtil.getFormattedMessage("dependency injection test"));
-//    }
-
-
      public static void useUtilityHelperDirectly() {
          UtilityHelper helper = new UtilityHelper("direct dependency test");
          System.out.println("Helper Message: " + helper.getMessage());
@@ -26,4 +19,10 @@ public class MainApp {
         UtilityHelper2 helper2 = new UtilityHelper2("direct dependency test");
         System.out.println("Helper Message: " + helper2.getMessage());
     }
+
+    //    private static void utilDep() {
+//        String message = "hello world";
+//        System.out.println("Capitalized: " + StringUtil.capitalize(message));
+//        System.out.println("Formatted Message: " + StringUtil.getFormattedMessage("dependency injection test"));
+//    }
 }
