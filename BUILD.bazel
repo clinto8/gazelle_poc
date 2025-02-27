@@ -1,6 +1,7 @@
-load("@contrib_rules_jvm//java:defs.bzl", "java_junit5_test")
 load("@gazelle//:def.bzl", "DEFAULT_LANGUAGES", "gazelle", "gazelle_binary")
-load("@rules_java//java:defs.bzl", "java_library")
+
+# gazelle:java_maven_install_file rules_jvm_external~~maven~maven_install.json
+# gazelle:resolve java org.junit.jupiter.api @maven//:org_junit_jupiter_junit_jupiter_api
 
 #java_library(
 #    name = "all_deps",
@@ -12,7 +13,7 @@ load("@rules_java//java:defs.bzl", "java_library")
 #        "@maven//:org_junit_jupiter_junit_jupiter_api",
 #    ],
 #)
-
+#
 ## Java Library for utils
 #java_library(
 #    name = "utils_lib",
@@ -45,11 +46,11 @@ load("@rules_java//java:defs.bzl", "java_library")
 #    deps = [
 #        #":utils_lib2",
 #        #":utils_lib3",
-#        #":all_deps",
-#        ":utils_lib",
+#        ":all_deps",
+#        #":utils_lib",
 #    ],
 #)
-#
+
 ## JUnit 5 Test for utils
 #java_junit5_test(
 #    name = "StringUtilTest",
